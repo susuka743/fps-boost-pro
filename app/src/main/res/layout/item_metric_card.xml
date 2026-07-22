@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_glass_card"
+    android:padding="@dimen/spacing_md">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/img_metric_icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_cpu"
+            app:tint="@color/neon_cyan"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/txt_metric_label"
+            style="@style/Text.Metric.Label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_xxs"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="CPU Usage" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_metric_value"
+        style="@style/Text.Metric.Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xs"
+        tools:text="42%" />
+
+    <ProgressBar
+        android:id="@+id/progress_metric"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:max="100"
+        android:progress="42"
+        android:progressTint="@color/neon_cyan"
+        android:progressBackgroundTint="@color/divider" />
+
+</LinearLayout>

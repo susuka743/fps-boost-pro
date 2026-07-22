@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FPS BOOST PRO</string>
+
+    <!-- Bottom nav -->
+    <string name="nav_home">Home</string>
+    <string name="nav_games">Games</string>
+    <string name="nav_boost">Boost</string>
+    <string name="nav_monitor">Monitor</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Home -->
+    <string name="boost_now">BOOST NOW</string>
+    <string name="current_fps">Current FPS</string>
+    <string name="cpu_usage">CPU Usage</string>
+    <string name="gpu_usage">GPU Usage</string>
+    <string name="ram_usage">RAM Usage</string>
+    <string name="device_temp">Temperature</string>
+    <string name="battery_health">Battery Health</string>
+    <string name="device_info">Device Info</string>
+
+    <!-- Root -->
+    <string name="root_not_detected">Root Not Detected</string>
+    <string name="root_pro_locked_msg">Advanced kernel-level optimizations (CPU governor, ZRAM, I/O scheduler, and more) require root access. Standard optimizations below work on every device.</string>
+    <string name="root_detected">Root Access Granted</string>
+
+    <string name="coming_soon">Coming soon in this build</string>
+
+    <!-- Home formatting -->
+    <string name="android_version_fmt">Android %1$s</string>
+    <string name="percent_fmt">%1$d%%</string>
+    <string name="celsius_fmt">%1$d°C</string>
+    <string name="battery_health_fmt">Battery • %1$s</string>
+    <string name="boost_result_fmt">Freed %1$d MB • Boost complete</string>
+
+    <string name="accessibility_service_description">Lets FPS Boost Pro detect which app is in the foreground, so it can show an optional per-app FPS overlay and background-app suggestions. Never enabled without your consent in Settings.</string>
+</resources>

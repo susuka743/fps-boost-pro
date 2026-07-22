@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_root"
+    android:fillViewport="true"
+    tools:context=".ui.home.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_lg"
+        android:paddingBottom="@dimen/spacing_xl">
+
+        <!-- ===== Profile header ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/img_profile"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_bg_stroke_cyan"
+                android:padding="8dp"
+                android:src="@drawable/ic_profile_placeholder"
+                app:tint="@color/neon_cyan" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_device_model"
+                    style="@style/Text.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Samsung Galaxy S23" />
+
+                <TextView
+                    android:id="@+id/txt_android_version"
+                    style="@style/Text.Metric.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Android 14" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/img_root_badge"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_shield_lock"
+                app:tint="@color/text_secondary"
+                android:contentDescription="@string/root_not_detected" />
+        </LinearLayout>
+
+        <!-- ===== BOOST NOW button ===== -->
+        <FrameLayout
+            android:layout_width="@dimen/boost_button_size"
+            android:layout_height="@dimen/boost_button_size"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_lg">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_boost_glow"
+                android:contentDescription="@null" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_boost_ring_gradient" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:background="@drawable/bg_boost_core" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_boost_now"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/boost_now"
+                android:textSize="16sp"
+                app:cornerRadius="90dp"
+                app:backgroundTint="@android:color/transparent"
+                android:textColor="@color/neon_cyan"
+                android:elevation="0dp"
+                app:icon="@drawable/ic_bolt_small"
+                app:iconGravity="textTop"
+                app:iconTint="@color/neon_cyan"
+                app:iconSize="32dp"
+                app:iconPadding="8dp"
+                android:letterSpacing="0.05"
+                android:fontFamily="sans-serif-black" />
+
+            <ProgressBar
+                android:id="@+id/progress_boosting"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:indeterminateTint="@color/neon_cyan"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txt_boost_result"
+            style="@style/Text.Metric.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:gravity="center"
+            android:textColor="@color/neon_green"
+            android:visibility="gone"
+            tools:text="Freed 842 MB • Boost complete"
+            tools:visibility="visible" />
+
+        <!-- ===== Live metrics grid ===== -->
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_lg"
+            app:columnCount="2"
+            app:rowCount="3"
+            app:alignmentMode="alignBounds"
+            app:useDefaultMargins="false">
+
+            <include
+                android:id="@+id/metric_fps"
+                layout="@layout/item_metric_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:layout_marginBottom="@dimen/spacing_xs"
+                app:layout_columnWeight="1"
+                app:layout_column="0"
+                app:layout_row="0" />
+
+            <include
+                android:id="@+id/metric_cpu"
+                layout="@layout/item_metric_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:layout_marginBottom="@dimen/spacing_xs"
+                app:layout_columnWeight="1"
+                app:layout_column="1"
+                app:layout_row="0" />
+
+            <include
+                android:id="@+id/metric_gpu"
+                layout="@layout/item_metric_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:layout_marginBottom="@dimen/spacing_xs"
+                app:layout_columnWeight="1"
+                app:layout_column="0"
+                app:layout_row="1" />
+
+            <include
+                android:id="@+id/metric_ram"
+                layout="@layout/item_metric_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:layout_marginBottom="@dimen/spacing_xs"
+                app:layout_columnWeight="1"
+                app:layout_column="1"
+                app:layout_row="1" />
+
+            <include
+                android:id="@+id/metric_temp"
+                layout="@layout/item_metric_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                app:layout_columnWeight="1"
+                app:layout_column="0"
+                app:layout_row="2" />
+
+            <include
+                android:id="@+id/metric_battery"
+                layout="@layout/item_metric_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xs"
+                app:layout_columnWeight="1"
+                app:layout_column="1"
+                app:layout_row="2" />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <!-- ===== Root status strip ===== -->
+        <LinearLayout
+            android:id="@+id/card_root_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/spacing_md">
+
+            <ImageView
+                android:id="@+id/img_root_status_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_shield_lock"
+                app:tint="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/txt_root_status"
+                style="@style/Text.Metric.Label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:layout_weight="1"
+                android:text="@string/root_not_detected"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
