@@ -10,11 +10,8 @@ import com.fpsboostpro.app.data.model.InstalledGame
 import com.fpsboostpro.app.data.model.PerformanceProfile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class GameDetectionRepository @Inject constructor() {
+class GameDetectionRepository {
 
     /** Real detection: checks each known package name against
      * PackageManager. Requires QUERY_ALL_PACKAGES (declared in manifest) on
